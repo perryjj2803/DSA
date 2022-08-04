@@ -7,16 +7,14 @@ class Sorts
     // bubble sort
     public static void bubbleSort(int[] A)
     {
-      int temp, ii;
       int pass=0;
-      boolean sorted;
+      boolean sorted = true;
       do {
-        sorted = true; 
-        for (ii = 0; ii < (A.length-1-pass)-1;)
+        for (int ii = 0; ii < (A.length-1-pass)-1; ii++)
         {
           if (A[ii] > A[ii+1])
           {
-            temp = A[ii];
+            int temp = A[ii];
             A[ii] = A[ii+1];
             A[ii+1] = temp;
             sorted = false;
@@ -30,17 +28,16 @@ class Sorts
     public static void selectionSort(int[] A)
     {
       int minIdx, nn, jj, temp;
-      for (nn = 0; nn < A.length-1;)
+      for (nn = 0; nn < A.length-1; nn++)
       {
         minIdx = nn;
-        for (jj = nn+1; jj < A.length-1;)
+        for (jj = nn+1; jj < A.length-1; jj++)
         {
           if (A[jj] < A[minIdx])
           {
             minIdx = jj;
           }
         }
-        
         temp = A[minIdx];
         A[minIdx] = A[nn];
         A[nn] = temp;
@@ -51,7 +48,7 @@ class Sorts
     public static void insertionSort(int[] A)
     {
       int nn, ii, temp;
-      for (nn = 1; nn < (A.length-1);)
+      for (nn = 1; nn < (A.length-1); nn++)
       {
         ii = nn;
         while ((ii > 0) && (A[ii-1] > A[ii]));
