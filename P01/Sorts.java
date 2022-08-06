@@ -50,15 +50,15 @@ class Sorts
       int nn, ii, temp;
       for (nn = 1; nn < (A.length-1); nn++)
       {
-        ii = nn;
-        while ((ii > 0) && (A[ii-1] > A[ii]));
-        {
-          temp = A[ii];
-          A[ii] = A[ii-1];
-          A[ii-1] = temp;
+        ii = nn-1;
+        temp = A[ii];
 
-          ii = ii-1;
-          }
+        while ((ii > -1) && (A[ii] > temp));
+        {
+          A[ii+1] = A[ii];
+          ii--;
+        }
+        A[ii+1] = temp;
       }
     }// insertionSort()
 
