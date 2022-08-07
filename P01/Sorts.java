@@ -4,24 +4,25 @@
 */
 class Sorts
 {
-    // bubble sort
-    public static void bubbleSort(int[] A)
+  public static void bubbleSort(int[] A)
     {
       int pass=0;
       boolean sorted = true;
-      do {
+      int temp;
+      do 
+      {
         for (int ii = 0; ii < (A.length-1-pass)-1; ii++)
         {
-          if (A[ii] > A[ii+1])
+          if ((A[ii]) > (A[ii+1]))
           {
-            int temp = A[ii];
+            temp = A[ii];
             A[ii] = A[ii+1];
             A[ii+1] = temp;
             sorted = false;
           }
         }
         pass = pass+1; 
-      } while (sorted == false);
+      } while (sorted != true);
     }//bubbleSort()
 
     // selection sort
