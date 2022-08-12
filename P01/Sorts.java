@@ -50,7 +50,7 @@ class Sorts
     public static void insertionSort(int[] A)
     {
       int nn, ii, temp;
-      for (nn = 1; nn < (A.length-1); nn++)
+      for (nn = 1; nn < (A.length); nn++)
       {
         ii = nn;
         temp = A[ii];
