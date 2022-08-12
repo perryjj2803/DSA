@@ -6,14 +6,15 @@ class Sorts
 {
   public static void bubbleSort(int[] A)
     {
-      int pass=0;
-      boolean sorted = true;
+      boolean sorted = false;
       int temp;
-      do 
+      int pass=0;
+      do
       {
-        for (int ii = 0; ii < (A.length-1-pass)-1; ii++)
+        sorted = true;
+        for (int ii = 0; ii < (A.length-1 -pass); ii++)
         {
-          if ((A[ii]) > (A[ii+1]))
+          if (A[ii] > A[ii+1])
           {
             temp = A[ii];
             A[ii] = A[ii+1];
@@ -51,15 +52,15 @@ class Sorts
       int nn, ii, temp;
       for (nn = 1; nn < (A.length-1); nn++)
       {
-        ii = nn-1;
+        ii = nn;
         temp = A[ii];
 
-        while ((ii > -1) && (A[ii] > temp));
+        while ((ii >= 0) && (A[ii-1] >= temp));
         {
-          A[ii+1] = A[ii];
+          A[ii] = A[ii-1];
           ii--;
         }
-        A[ii+1] = temp;
+        A[ii] = temp;
       }
     }// insertionSort()
 
