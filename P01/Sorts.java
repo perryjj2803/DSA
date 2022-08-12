@@ -33,7 +33,7 @@ class Sorts
       for (nn = 0; nn < A.length-1; nn++)
       {
         minIdx = nn;
-        for (jj = nn+1; jj < A.length-1; jj++)
+        for (jj = nn+1; jj < A.length; jj++)
         {
           if (A[jj] < A[minIdx])
           {
@@ -55,7 +55,7 @@ class Sorts
         ii = nn;
         temp = A[ii];
 
-        while ((ii >= 0) && (A[ii-1] >= temp));
+        while ((ii > 0) && (A[ii-1] > temp));
         {
           A[ii] = A[ii-1];
           ii--;
