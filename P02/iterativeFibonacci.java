@@ -6,7 +6,7 @@ class iterativeFibonacci
     {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please enter FIbonacci number");
+        System.out.println("Please enter Fibonacci number");
         int userInt = input.nextInt();
         int fibNumber = fibIterative(userInt);
         System.out.println("The number is " + fibNumber);
@@ -27,7 +27,7 @@ class iterativeFibonacci
         }
         else
         {
-            for(int ii = 2; ii < n; ii++)
+            for(int ii = 2; ii < n+1; ii++)
             {
                 fibVal = currVal + lastVal;
                 lastVal = currVal;
