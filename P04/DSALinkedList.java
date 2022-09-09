@@ -1,5 +1,5 @@
 import java.util.*;
-public class DSALinkedList
+public class DSALinkedList implements Iterable
 {
     private class DSAListNode
     {
@@ -68,7 +68,7 @@ public class DSALinkedList
         newNd = new DSAListNode(newValue);
         if(isEmpty())
         {
-            head = newNd;
+            head = tail = newNd;
         }    
         else
         {
@@ -119,9 +119,14 @@ public class DSALinkedList
         {
             throw new IllegalArgumentException( "List is empty" );
         }
+        else if(head.getNext() == null)
+        {
+            nodeValue = head.getValue();
+            head = null;
+        }
         else
         {
-            nodeValue = head;
+            nodeValue = head.getValue();
             head = head.getNext();
         }
         return nodeValue;
@@ -150,14 +155,58 @@ public class DSALinkedList
         return nodeValue;
     }
     public void print()
+    {
+        DSAListNode n = head;
+        while(n.getNext() != null)
         {
-            DSAListNode n = head;
-            while(n.getNext() != null)
-            {
-                System.out.println(n.getValue());
-                n = n.getNext();
-            }
-    
+            System.out.println(n.getValue());
+            n = n.getNext();
         }
+    
+    }
+    public void iterateOverList(DSALinkedList theList)
+    {
+        Object c;
+        int count = 0;
+        Iterator iter = theList.iterator();
+        while(iter.hasNext())
+        {
+            c = (Object)iter.next();
+            count++;
+            System.out.println(c);
+            System.out.println("count = " + count );
+        }
+    }
+    public Iterator iterator()
+    {
+        return new DSALinkedListIterator(this);
+    }
+    private class DSALinkedListIterator implements Iterator
+    {
+        private DSAListNode iterNext;
+        public DSALinkedListIterator(DSALinkedList theList)
+        {
+            iterNext = theList.head;
+        }
+        public boolean hasNext()
+        {
+            return (iterNext != null);
+        }
+        public Object next()
+        {
+            Object value;
+            if(iterNext == null)
+            {
+                value = null;
+            }
+            else
+            {
+                value = iterNext.getValue();
+                iterNext = iterNext.getNext();
+            }
+            return value;
+        }
+        public void remove() {throw new UnsupportedOperationException("Not supported"); }
+    }
 }
     
